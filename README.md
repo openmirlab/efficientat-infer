@@ -76,6 +76,8 @@ File inputs use SoundFile metadata and accept common formats supported by libsnd
 
 `result.scores[i]` corresponds to `result.mids[i]` and `result.labels[i]`. `result.audio` records original sample rate/channels/count and model sample count/padding. `result.checkpoint` records the verified model identity and SHA-256. `result.semantics` and weight-free `output_semantics("mn10")` describe the native outputs. `result.to_dict()` serializes all 527 scores and metadata; pass `include_embedding=False` to omit the larger feature array explicitly.
 
+Scores and embeddings own read-only CPU NumPy storage, so `release()` or `close()` does not invalidate earlier results.
+
 The mel frontend uses a 25 ms Hann window, 10 ms hop, 128 Kaldi mel bins, a 32 kHz input and the original pre-emphasis and normalization. The output scores and embedding describe the entire model input, including explicit right padding. There are no timestamps or localized event estimates.
 
 `load()` is idempotent and holds one model in memory. `infer()` requires a ready session; `release()` frees its resident model and permits reload; `close()` is terminal. `status`, `cache_info()` and `loaded_checkpoint_info()` expose lifecycle/cache and the verified resident checkpoint. `device="auto"` chooses CUDA 0 when available, else CPU; an explicit unavailable CUDA request fails. MPS and MLX are unsupported.

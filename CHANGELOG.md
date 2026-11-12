@@ -10,3 +10,5 @@
   while removing TorchVision and TorchAudio binary runtime dependencies.
 - Use complex STFT plus `view_as_real` to retain the original spectrum values
   without the deprecated `return_complex=False` call.
+- Return read-only CPU score and embedding arrays that remain valid after
+  session release.
