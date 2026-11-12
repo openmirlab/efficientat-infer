@@ -62,6 +62,8 @@ def normalize(audio, sample_rate, device, *, pad_to_seconds=None):
         waveform = resample(waveform, sample_rate, 32000)
     if waveform.numel() <= 513:
         raise ValueError("Audio is too short for the EfficientAT mel frontend; pad explicitly")
+    model_samples = waveform.numel()
+    normalized_samples = min(model_samples, math.ceil(input_samples * 32000 / sample_rate))
     info = {
         "sample_rate": sample_rate,
         "channels": channels,
@@ -69,7 +71,9 @@ def normalize(audio, sample_rate, device, *, pad_to_seconds=None):
         "input_duration_seconds": input_samples / sample_rate,
         "analysis_sample_rate": 32000,
         "analysis_channels": 1,
-        "model_samples": waveform.numel(),
+        "model_samples": model_samples,
+        "normalized_samples": normalized_samples,
+        "model_padding_samples": model_samples - normalized_samples,
         "padding_samples": padding_samples,
         "padding_seconds": padding_samples / sample_rate,
         "pad_to_seconds": pad_to_seconds,
