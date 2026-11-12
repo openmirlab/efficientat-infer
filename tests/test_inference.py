@@ -81,6 +81,8 @@ def test_author_checkpoint_matches_upstream_golden(model_id, monkeypatch):
             assert np.array_equal(first.scores, expected)
             assert np.array_equal(first.embedding, fixture[f"{model_id}_features"][0])
             assert np.array_equal(first.scores, second.scores)
+            assert not first.scores.flags.writeable
+            assert not first.embedding.flags.writeable
             assert first.mids == audioset_labels()[1]
             assert first.to_dict(include_embedding=False)["embedding_omitted"] is True
             session.release()
