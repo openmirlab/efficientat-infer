@@ -1,0 +1,27 @@
+{
+  "release": "v0.0.1",
+  "source_repo": "fschmid56/EfficientAT",
+  "source_revision": "a425fdce92572e602a1d5634799bd9f1f2efa806",
+  "updated_at": "2026-11-12",
+  "code_license": "MIT",
+  "checkpoint_license": "not separately stated in the upstream release",
+  "labels": {
+    "namespace": "Google AudioSet MID",
+    "sha256": "cdd1049833c4b86127c2773ac0d14a2754b6a6d0d1798002ed5c66e699708429",
+    "source": "https://storage.googleapis.com/us_audioset/youtube_corpus/v1/csv/class_labels_indices.csv"
+  },
+  "models": {
+    "mn04": {
+      "filename": "mn04_as_mAP_432.pt",
+      "url": "https://github.com/fschmid56/EfficientAT/releases/download/v0.0.1/mn04_as_mAP_432.pt",
+      "size": 4066513,
+      "sha256": "899a8c6217063f6941793102a2780b3dd788ab11fce468d9cf5f0577c453321c"
+    },
+    "mn10": {
+      "filename": "mn10_as_mAP_471.pt",
+      "url": "https://github.com/fschmid56/EfficientAT/releases/download/v0.0.1/mn10_as_mAP_471.pt",
+      "size": 19708753,
+      "sha256": "0bd7dc2443af498c289a2e739f02ebb515d6aa3fd3ab9db539c86123ae368a4e"
+    }
+  }
+}

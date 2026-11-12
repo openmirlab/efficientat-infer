@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "efficientat-infer"
+dynamic = ["version"]
+description = "Standalone EfficientAT MobileNet AudioSet inference"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT AND BSD-2-Clause AND BSD-3-Clause"
+authors = [
+  {name = "Florian Schmid"},
+  {name = "Khaled Koutini"},
+  {name = "Gerhard Widmer"},
+]
+maintainers = [{name = "openmirlab"}]
+dependencies = ["torch>=2.0", "numpy>=1.26", "soundfile>=0.12", "filelock>=3.13"]
+
+[project.scripts]
+efficientat-infer = "efficientat_infer.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "build>=1.2", "ruff>=0.12"]
+
+[tool.hatch.version]
+path = "src/efficientat_infer/__about__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/efficientat_infer"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"docs/TORCHAUDIO_LICENSE" = "efficientat_infer/licenses/TORCHAUDIO_LICENSE.txt"
+"docs/TORCHVISION_LICENSE" = "efficientat_infer/licenses/TORCHVISION_LICENSE.txt"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/", "tests/", "tools/", "docs/", "README.md", "CLAUDE.md", "CHANGELOG.md", "LICENSE", "NOTICE", "pyproject.toml", ".gitignore", ".github/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/efficientat_infer/_impl/kaldi.py" = ["E741"]
+"tools/*.py" = ["E402"]

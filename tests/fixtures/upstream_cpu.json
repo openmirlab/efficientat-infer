@@ -1,0 +1,11 @@
+{
+  "upstream_revision": "a425fdce92572e602a1d5634799bd9f1f2efa806",
+  "torch_version": "2.7.1+cu126",
+  "torch_num_threads": 2,
+  "device": "cpu",
+  "input": "deterministic generated waveform; 10s at 32kHz; last 3s silence",
+  "checkpoint_sha256": {
+    "mn04": "899a8c6217063f6941793102a2780b3dd788ab11fce468d9cf5f0577c453321c",
+    "mn10": "0bd7dc2443af498c289a2e739f02ebb515d6aa3fd3ab9db539c86123ae368a4e"
+  }
+}

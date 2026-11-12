@@ -1,0 +1,23 @@
+EfficientAT MN AudioSet inference extraction
+
+Original model and research: Florian Schmid, Khaled Koutini, Gerhard Widmer.
+Original source: https://github.com/fschmid56/EfficientAT
+Source revision used for parity: a425fdce92572e602a1d5634799bd9f1f2efa806.
+Original source copyright (c) 2022 Florian Schmid; MIT license in LICENSE.
+Package integration copyright (c) 2026 openmirlab.
+
+The pure PyTorch resampler and Kaldi mel-bank dependency closure derive from
+TorchAudio 2.7.1, pytorch/audio revision
+95c61b4168fc5133be8dd8c1337d929d066ae6cf, copyright (c) 2017
+Facebook Inc. (Soumith Chintala), BSD-2-Clause. Its full license is retained
+in docs/TORCHAUDIO_LICENSE and included in the wheel.
+
+The small pure Torch ConvNormActivation compatibility wrapper follows the
+TorchVision 0.22.1 constructor and module-index contract. TorchVision is
+BSD-3-Clause; its full license is retained in docs/TORCHVISION_LICENSE and
+included in the wheel. The binary TorchVision runtime is not a dependency.
+
+The 527-label AudioSet class CSV is included as a small vocabulary asset.
+AudioSet ontology is CC BY-SA 4.0; dataset is CC BY 4.0. Model weights are not
+bundled. Their license is not separately stated in the upstream release.
+This is an independent package, not an official EfficientAT release.
