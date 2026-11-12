@@ -28,10 +28,10 @@ licensing is not separately stated in the release.
   or TorchAudio binary runtime. CUDA execution produced finite 527 scores for
   both models. Python 3.10/3.12/3.13 CI and fresh published-name pip install
   remain release gates, not claims made by this local build.
-- This is a local new package; GitHub/PyPI publication and org-hosted weights
-  have not happened.
+- The GitHub repository is public since 2026-11-12; PyPI publication and
+  org-hosted weights have not happened.
 - `openmirlab-skills` was searched for existing EfficientAT guidance; none
-  exists while this package is local and unpublished.
+  exists yet; the package is not released on PyPI.
 
 ## File navigation
 
