@@ -42,9 +42,10 @@ Training, evaluation frameworks, datasets, model fine-tuning, Dynamic MobileNet 
 
 ## Install
 
-Python 3.10+ and Torch 2.0+. Install the appropriate CPU or CUDA Torch build for your platform first, then from this checkout:
+Python 3.10+ and Torch 2.0+. Install the appropriate CPU or CUDA Torch build for your platform first, then from GitHub or a checkout:
 
 ```bash
+python -m pip install "efficientat-infer @ git+https://github.com/openmirlab/efficientat-infer"
 python -m pip install .
 ```
 

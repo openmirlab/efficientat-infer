@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Make the GitHub repository public (2026-11-12); not on PyPI and no weights are
+  rehosted. Document installation from GitHub.
+
 ## 0.1.0 — 2026-11-12
 
 - Add standalone mn04 and mn10 AudioSet inference sessions, native 527-class
