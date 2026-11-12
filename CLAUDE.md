@@ -38,6 +38,7 @@ licensing is not separately stated in the release.
 Every load-bearing file starts with a purpose, rationale and `Reads:` header.
 `session.py` owns lifecycle and inference. `checkpoints.py` owns the resolver
 shared by `load()` and `cache_info()`. `_impl/audio.py` owns input policy.
+Result arrays are copied to read-only CPU storage before the session returns.
 `_impl/frontend.py`, `_impl/kaldi.py` and `_impl/resample.py` own the model
 frontend. `_impl/model.py`, `_impl/block_types.py`, `_impl/conv.py`,
 `_impl/attention_pooling.py` and `_impl/utils.py` own the checkpoint-faithful MN.

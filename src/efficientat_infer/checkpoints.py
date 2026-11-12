@@ -69,7 +69,7 @@ def _registry(config_path=None):
         raise ValueError("Invalid AudioSet label metadata")
     if not re.fullmatch(r"[0-9a-f]{64}", labels["sha256"]):
         raise ValueError("Invalid AudioSet label SHA256")
-    if set(data["models"]) != {"mn04", "mn10"}:
+    if not isinstance(data["models"], dict) or set(data["models"]) != {"mn04", "mn10"}:
         raise ValueError("Registry must define mn04 and mn10")
     for model_id, artifact in data["models"].items():
         if not isinstance(artifact, dict) or not {"filename", "url", "size", "sha256"}.issubset(artifact):

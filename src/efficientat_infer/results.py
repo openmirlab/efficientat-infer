@@ -31,6 +31,7 @@ def output_semantics(model_id):
             "channels": 1,
             "mono": "arithmetic channel mean before resampling",
             "padding": "optional right zeros at original sample rate before resampling",
+            "sample_counts": "input_samples and padding_samples are source-rate counts; normalized_samples, model_padding_samples and model_samples are 32000 Hz counts",
             "windowing": "none; caller supplies each desired window",
         },
     }

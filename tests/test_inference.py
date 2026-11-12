@@ -54,6 +54,12 @@ def test_audio_padding_and_channel_order():
     assert torch.count_nonzero(waveform) == 0
     assert info["input_samples"] == 16000
     assert info["padding_samples"] == 16000
+    assert info["model_samples"] == info["normalized_samples"] + info["model_padding_samples"]
+    _, resampled = normalize(
+        np.zeros((2, 441), dtype=np.float32), 44100, torch.device("cpu"), pad_to_seconds=0.02
+    )
+    assert resampled["padding_samples"] == 441
+    assert (resampled["normalized_samples"], resampled["model_padding_samples"]) == (320, 320)
     with pytest.raises(ValueError, match="shorter"):
         normalize(samples, 32000, torch.device("cpu"), pad_to_seconds=0.25)
     with pytest.raises(ValueError, match="floating-point"):
@@ -81,6 +87,8 @@ def test_author_checkpoint_matches_upstream_golden(model_id, monkeypatch):
             assert np.array_equal(first.scores, expected)
             assert np.array_equal(first.embedding, fixture[f"{model_id}_features"][0])
             assert np.array_equal(first.scores, second.scores)
+            assert not first.scores.flags.writeable
+            assert not first.embedding.flags.writeable
             assert first.mids == audioset_labels()[1]
             assert first.to_dict(include_embedding=False)["embedding_omitted"] is True
             session.release()

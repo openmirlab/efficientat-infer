@@ -58,3 +58,7 @@ def test_invalid_override_rejected_before_path_use(tmp_path):
     config.write_text(json.dumps(data))
     with pytest.raises(ValueError, match="Unsafe"):
         CheckpointStore("mn10", checkpoint_config=config)
+    data["models"] = ["mn04", "mn10"]
+    config.write_text(json.dumps(data))
+    with pytest.raises(ValueError, match="Registry must define"):
+        CheckpointStore("mn10", checkpoint_config=config)

@@ -116,6 +116,8 @@ class EfficientATSession:
                     embedding = features[0].float().cpu().numpy().copy()
                 if scores.shape != (527,) or not np.isfinite(scores).all():
                     raise RuntimeError("EfficientAT returned invalid AudioSet scores")
+                scores.setflags(write=False)
+                embedding.setflags(write=False)
                 return EfficientATResult(
                     model_id=self.model_id, scores=scores, embedding=embedding,
                     labels=self._labels, mids=self._mids, audio=audio_info,
