@@ -28,10 +28,11 @@ licensing is not separately stated in the release.
   or TorchAudio binary runtime. CUDA execution produced finite 527 scores for
   both models. Python 3.10/3.12/3.13 CI and fresh published-name pip install
   remain release gates, not claims made by this local build.
-- The GitHub repository is public since 2026-11-12; PyPI publication and
-  org-hosted weights have not happened.
-- `openmirlab-skills` was searched for existing EfficientAT guidance; none
-  exists yet; the package is not released on PyPI.
+- The GitHub source repository is public at `openmirlab/efficientat-infer`;
+  install with `pip install 'efficientat-infer @ git+https://github.com/openmirlab/efficientat-infer.git'`.
+  PyPI publication and org-hosted weights have not happened.
+- `openmirlab-skills` was searched for existing EfficientAT guidance; update its
+  capability-map entry when the install story changes.
 
 ## File navigation
 

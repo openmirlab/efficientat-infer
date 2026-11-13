@@ -4,6 +4,8 @@
 
 - Make the GitHub repository public (2026-11-12); not on PyPI and no weights are
   rehosted. Document installation from GitHub.
+- Align README sections with OpenMIRLab style and document the public GitHub
+  install and issue tracker.
 
 ## 0.1.0 — 2026-11-12
 
